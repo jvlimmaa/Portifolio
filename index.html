@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>João Victor Lima dos Santos — Desenvolvedor de Software</title>
+<meta name="description" content="Portfólio de João Victor Lima dos Santos, desenvolvedor de software focado em backend e web.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0a0a0f;
+    --bg-raised: #12141d;
+    --bg-raised-2: #171a26;
+    --line: #232636;
+    --text: #eef0f6;
+    --text-dim: #9aa1b4;
+    --text-faint: #656c80;
+    --accent: #00d2ff;
+    --accent-soft: rgba(0, 210, 255, 0.12);
+    --accent-line: rgba(0, 210, 255, 0.35);
+    --radius-s: 8px;
+    --radius-m: 14px;
+    --maxw: 1120px;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *,*::before,*::after{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Source Sans 3", -apple-system, "Segoe UI", sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,h2,h3{
+    font-family: "Outfit", "Source Sans 3", sans-serif;
+    color: var(--text);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  a{ color: inherit; text-decoration: none; }
+  img,svg{ display:block; max-width:100%; }
+  ul{ margin:0; padding:0; list-style:none; }
+
+  .wrap{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  :focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* ---------- Navbar ---------- */
+  .nav{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10, 10, 15, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: border-color .35s ease, background .35s ease;
+  }
+  .nav.is-scrolled{
+    border-bottom-color: var(--line);
+    background: rgba(10, 10, 15, 0.78);
+  }
+  .nav .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height: 72px;
+  }
+  .nav-mark{
+    font-family:"Outfit", sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display:flex;
+    align-items:center;
+    gap: 10px;
+  }
+  .nav-mark .dot{
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    flex-shrink:0;
+  }
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap: 36px;
+  }
+  .nav-links a{
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    transition: color .2s ease;
+    position:relative;
+  }
+  .nav-links a:hover{ color: var(--text); }
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:-6px;
+    width:0; height:1px;
+    background: var(--accent);
+    transition: width .25s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-toggle{
+    display:none;
+    background:none;
+    border:1px solid var(--line);
+    border-radius: var(--radius-s);
+    width: 40px; height: 40px;
+    color: var(--text);
+    cursor:pointer;
+    align-items:center;
+    justify-content:center;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding: 200px 0 140px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top: -260px; right: -160px;
+    width: 620px; height: 620px;
+    background: radial-gradient(circle, rgba(0,210,255,0.16) 0%, rgba(0,210,255,0) 68%);
+    pointer-events:none;
+  }
+  .hero-eyebrow{
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .hero h1{
+    font-size: clamp(2.4rem, 5.4vw, 4rem);
+    font-weight: 700;
+    max-width: 16ch;
+    line-height: 1.08;
+  }
+  .hero-role{
+    font-family:"Outfit", sans-serif;
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    color: var(--text-dim);
+    font-weight: 500;
+    margin-top: 18px;
+  }
+  .hero-summary{
+    margin-top: 22px;
+    max-width: 58ch;
+    color: var(--text-dim);
+    font-size: 1.05rem;
+  }
+  .hero-actions{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 40px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap: 8px;
+    padding: 13px 26px;
+    border-radius: var(--radius-s);
+    font-size: 0.97rem;
+    font-weight: 600;
+    font-family: "Outfit", sans-serif;
+    cursor:pointer;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+    border: 1px solid transparent;
+  }
+  .btn-primary{
+    background: var(--accent);
+    color: #05141a;
+  }
+  .btn-primary:hover{
+    box-shadow: 0 0 0 1px var(--accent), 0 10px 30px -10px var(--accent-line);
+    transform: translateY(-1px);
+  }
+  .btn-ghost{
+    background: transparent;
+    border-color: var(--line);
+    color: var(--text);
+  }
+  .btn-ghost:hover{
+    border-color: var(--accent-line);
+    color: var(--accent);
+  }
+
+  /* ---------- Section shell ---------- */
+  section{ padding: 108px 0; }
+  .section-head{
+    margin-bottom: 52px;
+    max-width: 62ch;
+  }
+  .section-head h2{
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    font-weight: 700;
+  }
+  .section-head p{
+    margin-top: 14px;
+    color: var(--text-dim);
+    font-size: 1.02rem;
+  }
+
+  .reveal{
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .reveal.is-visible{
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ---------- Sobre ---------- */
+  #sobre{
+    border-top: 1px solid var(--line);
+  }
+  .about-grid{
+    display:grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 64px;
+    align-items:start;
+  }
+  .about-text p{
+    color: var(--text-dim);
+    margin: 0 0 18px;
+  }
+  .about-text p:last-child{ margin-bottom:0; }
+
+  .skill-group{ margin-bottom: 26px; }
+  .skill-group:last-child{ margin-bottom:0; }
+  .skill-group h3{
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-faint);
+    margin-bottom: 12px;
+  }
+  .badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 9px;
+  }
+  .badge{
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    background: var(--bg-raised);
+    transition: border-color .2s ease, color .2s ease;
+  }
+  .badge:hover{
+    border-color: var(--accent-line);
+    color: var(--accent);
+  }
+
+  .info-card{
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-m);
+    padding: 26px 28px;
+    margin-bottom: 20px;
+  }
+  .info-card:last-child{ margin-bottom:0; }
+  .info-card h3{
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-faint);
+    margin-bottom: 16px;
+  }
+  .info-row{
+    display:flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+    font-size: 0.94rem;
+  }
+  .info-row:first-of-type{ border-top:none; padding-top:0; }
+  .info-row .label{ color: var(--text); font-weight: 500; }
+  .info-row .meta{ color: var(--text-faint); text-align:right; }
+
+  /* ---------- Projetos ---------- */
+  #projetos{ border-top: 1px solid var(--line); }
+  .project-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .project-card{
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-m);
+    padding: 30px 26px;
+    display:flex;
+    flex-direction:column;
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .project-card:hover{
+    transform: translateY(-4px);
+    border-color: var(--accent-line);
+    box-shadow: 0 16px 40px -22px var(--accent-line);
+  }
+  .project-icon{
+    width: 46px; height: 46px;
+    border-radius: 10px;
+    background: var(--accent-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom: 22px;
+    color: var(--accent);
+  }
+  .project-card h3{
+    font-size: 1.18rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .project-card p{
+    color: var(--text-dim);
+    font-size: 0.94rem;
+    margin: 0 0 20px;
+    flex-grow: 1;
+  }
+  .project-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 7px;
+    margin-bottom: 22px;
+  }
+  .tag{
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: var(--bg-raised-2);
+    color: var(--text-dim);
+    border: 1px solid var(--line);
+  }
+  .project-link{
+    display:inline-flex;
+    align-items:center;
+    gap: 8px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--accent);
+    align-self:flex-start;
+  }
+  .project-link svg{ width:16px; height:16px; transition: transform .2s ease; }
+  .project-card:hover .project-link svg{ transform: translate(2px,-2px); }
+
+  /* ---------- Experiência ---------- */
+  #experiencia{ border-top: 1px solid var(--line); }
+  .timeline{
+    position:relative;
+    padding-left: 32px;
+    max-width: 720px;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left: 5px; top: 6px; bottom: 6px;
+    width: 1px;
+    background: var(--line);
+  }
+  .timeline-item{ position:relative; padding-bottom: 4px; }
+  .timeline-item::before{
+    content:"";
+    position:absolute;
+    left: -32px; top: 6px;
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 12px var(--accent-line);
+  }
+  .timeline-date{
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .timeline-item h3{
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  .timeline-org{
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    margin-top: 4px;
+    margin-bottom: 16px;
+  }
+  .timeline-item ul{
+    display:flex;
+    flex-direction:column;
+    gap: 10px;
+  }
+  .timeline-item li{
+    color: var(--text-dim);
+    font-size: 0.96rem;
+    padding-left: 18px;
+    position:relative;
+  }
+  .timeline-item li::before{
+    content:"";
+    position:absolute;
+    left:0; top: 10px;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--text-faint);
+  }
+
+  /* ---------- Contato / Footer ---------- */
+  #contato{
+    border-top: 1px solid var(--line);
+    text-align:center;
+  }
+  #contato .section-head{
+    max-width: 56ch;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .contact-actions{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap: 14px;
+    margin-top: 34px;
+  }
+  footer{
+    border-top: 1px solid var(--line);
+    padding: 32px 0;
+  }
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: var(--text-faint);
+  }
+  .footer-links{
+    display:flex;
+    gap: 22px;
+  }
+  .footer-links a{
+    color: var(--text-faint);
+    transition: color .2s ease;
+  }
+  .footer-links a:hover{ color: var(--accent); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px){
+    .about-grid{ grid-template-columns: 1fr; gap: 40px; }
+    .project-grid{ grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 700px){
+    .wrap{ padding: 0 22px; }
+    .nav-links{
+      position:absolute;
+      top: 72px; left:0; right:0;
+      background: rgba(10,10,15,0.97);
+      backdrop-filter: blur(14px);
+      flex-direction:column;
+      align-items:flex-start;
+      gap: 0;
+      border-bottom: 1px solid var(--line);
+      max-height: 0;
+      overflow:hidden;
+      transition: max-height .3s ease;
+    }
+    .nav-links.is-open{ max-height: 320px; }
+    .nav-links a{
+      width:100%;
+      padding: 16px 22px;
+      border-top: 1px solid var(--line);
+    }
+    .nav-toggle{ display:flex; }
+    .hero{ padding: 150px 0 90px; }
+    section{ padding: 78px 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="#" class="nav-mark"><span class="dot"></span>JV Lima</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">Disponível para estágio e vagas júnior</div>
+    <h1>João Victor Lima dos Santos</h1>
+    <p class="hero-role">Desenvolvedor de Software — Backend &amp; Web</p>
+    <p class="hero-summary">
+      Estudante de Desenvolvimento de Software Multiplataforma na FATEC Indaiatuba e Técnico em Informática pela FIEC,
+      com experiência prática em suporte a sistemas, banco de dados e rotinas de TI. Construo aplicações backend e
+      integrações com nuvem e mensageria usando Java, SQL e APIs REST.
+    </p>
+    <div class="hero-actions">
+      <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+      <a href="https://linkedin.com/in/joaovictor-limadossantos" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      <a href="https://github.com/jvlimmaa" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section id="sobre">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Sobre mim</h2>
+      <p>Formação, competências técnicas e o que venho construindo.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          Estou em formação em Tecnologia da Informação, com foco em Desenvolvimento de Software Multiplataforma,
+          buscando uma oportunidade de estágio ou posição júnior para aplicar e evoluir meus conhecimentos em
+          desenvolvimento backend e web. Tenho experiência prática com suporte a sistemas, manutenção de banco de
+          dados e rotinas de TI, além de sólidos conhecimentos em lógica de programação.
+        </p>
+        <p>
+          Nos meus projetos pessoais, exploro desde aplicações orientadas a objetos em Java até integrações com
+          serviços de nuvem e mensageria, sempre com o objetivo de entender como sistemas backend se comunicam e
+          escalam na prática.
+        </p>
+
+        <div class="skill-group" style="margin-top:36px;">
+          <h3>Linguagens &amp; Web</h3>
+          <div class="badges">
+            <span class="badge">Java</span>
+            <span class="badge">Python</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">TypeScript</span>
+            <span class="badge">HTML5</span>
+            <span class="badge">CSS3</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Banco de Dados</h3>
+          <div class="badges">
+            <span class="badge">SQL</span>
+            <span class="badge">MySQL</span>
+            <span class="badge">PostgreSQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>APIs &amp; Nuvem</h3>
+          <div class="badges">
+            <span class="badge">RESTful APIs</span>
+            <span class="badge">Apache Kafka</span>
+            <span class="badge">AWS SDK</span>
+            <span class="badge">Firebase</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Ferramentas</h3>
+          <div class="badges">
+            <span class="badge">Git</span>
+            <span class="badge">GitHub</span>
+            <span class="badge">Metodologias Ágeis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="info-card">
+          <h3>Formação Acadêmica</h3>
+          <div class="info-row">
+            <span class="label">Tecnologia da Informação — Des. de Software Multiplataforma</span>
+          </div>
+          <div class="info-row" style="border-top:none; padding-top:0; margin-top:-6px;">
+            <span class="meta">FATEC Indaiatuba · 07/2025 – 12/2029</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Técnico em Informática</span>
+          </div>
+          <div class="info-row" style="border-top:none; padding-top:0; margin-top:-6px;">
+            <span class="meta">FIEC Indaiatuba · 07/2025 – 12/2026</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h3>Certificados</h3>
+          <div class="info-row">
+            <span class="label">Dominando Git e GitHub no Dia a Dia</span>
+            <span class="meta">DIO.me · 2026</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Formação Desenvolvimento Web e Práticas Ágeis</span>
+            <span class="meta">Alura / DIO.me · 2026</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h3>Idiomas</h3>
+          <div class="info-row">
+            <span class="label">Português</span>
+            <span class="meta">Nativo</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Inglês</span>
+            <span class="meta">Intermediário</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projetos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Projetos</h2>
+      <p>Uma seleção de projetos que refletem meu trabalho com Java, dados e integrações backend.</p>
+    </div>
+
+    <div class="project-grid">
+
+      <article class="project-card reveal">
+        <div class="project-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 3c-1.2 1.6-1.2 3 0 4.5C6.4 9 6.4 10.8 8 12M12 2c-1.4 2-1.4 4 0 6-1.8 1.6-1.8 3.8 0 5.4M6 20c4 1.3 8 1.3 12 0M6 17.5c4 1.2 8 1.2 12 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Sistema de Gerenciamento de Lavanderia</h3>
+        <p>Aplicação Java orientada a objetos para automatizar o controle de pedidos e o acompanhamento de serviços de uma lavanderia, do cadastro ao status de entrega.</p>
+        <div class="project-tags">
+          <span class="tag">Java</span>
+          <span class="tag">POO</span>
+          <span class="tag">Lógica de Negócio</span>
+        </div>
+        <a href="https://github.com/joaovictorlimaods/Projeto-Lavanderia" target="_blank" rel="noopener" class="project-link">
+          Ver no GitHub
+          <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="7" r="0.8" fill="currentColor"/><circle cx="7" cy="17" r="0.8" fill="currentColor"/></svg>
+        </div>
+        <h3>API Backend &amp; Serviços REST</h3>
+        <p>Aplicação backend em Java com endpoints RESTful e integração a banco de dados, estruturada para servir dados de forma consistente a diferentes clientes.</p>
+        <div class="project-tags">
+          <span class="tag">Java</span>
+          <span class="tag">REST API</span>
+          <span class="tag">Banco de Dados</span>
+        </div>
+        <a href="https://github.com/joaovictorlimaods/Projeto-backend" target="_blank" rel="noopener" class="project-link">
+          Ver no GitHub
+          <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M12 3v3M12 18v3M21 12h-3M6 12H3M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1M18.4 18.4l-2.1-2.1M7.7 7.7L5.6 5.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Integração com Nuvem &amp; Mensageria</h3>
+        <p>Sistema distribuído em Java que combina Apache Kafka, Firebase e AWS SDK para comunicação assíncrona entre serviços e persistência em nuvem.</p>
+        <div class="project-tags">
+          <span class="tag">Java</span>
+          <span class="tag">Apache Kafka</span>
+          <span class="tag">AWS SDK</span>
+          <span class="tag">Firebase</span>
+        </div>
+        <a href="https://github.com/jvlimmaa" target="_blank" rel="noopener" class="project-link">
+          Ver no GitHub
+          <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="experiencia">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Experiência</h2>
+      <p>Vivência prática aplicando tecnologia no dia a dia de uma instituição de ensino.</p>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <div class="timeline-date">03/2026 — Atual</div>
+        <h3>Estagiário de TI</h3>
+        <div class="timeline-org">Colégio Renovação</div>
+        <ul>
+          <li>Suporte técnico a usuários, manutenção de sistemas e equipamentos.</li>
+          <li>Manutenção da rotina de banco de dados e auxílio na gestão de dados internos.</li>
+          <li>Apoio na infraestrutura de TI e suporte aos sistemas web da escola.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Vamos conversar</h2>
+      <p>Estou buscando uma oportunidade de estágio ou posição júnior para colocar em prática o que venho estudando e continuar aprendendo com quem já trilhou esse caminho. Se meu perfil fizer sentido para sua equipe, será um prazer conversar.</p>
+    </div>
+    <div class="contact-actions reveal">
+      <a href="mailto:jvlimmaa08@gmail.com" class="btn btn-primary">jvlimmaa08@gmail.com</a>
+      <a href="https://linkedin.com/in/joaovictor-limadossantos" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      <a href="https://github.com/jvlimmaa" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 João Victor Lima dos Santos</span>
+    <div class="footer-links">
+      <a href="mailto:jvlimmaa08@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/joaovictor-limadossantos" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/jvlimmaa" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Navbar background on scroll
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('is-scrolled', window.scrollY > 8);
+  });
+
+  // Mobile menu toggle
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', function(){
+    var open = navLinks.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Reveal on scroll
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(function(el){ observer.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+</script>
+
+</body>
+</html>
