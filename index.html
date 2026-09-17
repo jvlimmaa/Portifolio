@@ -435,6 +435,122 @@
     background: var(--text-faint);
   }
 
+  /* ---------- Diário de Bordo ---------- */
+  #diario{ border-top: 1px solid var(--line); }
+  .journal-item{ position:relative; padding-bottom: 4px; }
+  .journal-item::before{
+    content:"";
+    position:absolute;
+    left: -32px; top: 6px;
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 12px var(--accent-line);
+  }
+  .journal-kind{
+    display:inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .journal-item h3{
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .journal-item p{
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    margin: 8px 0 0;
+  }
+  .journal-item + .journal-item{ margin-top: 34px; }
+
+  /* ---------- Atividades Avaliativas ---------- */
+  #atividades{ border-top: 1px solid var(--line); }
+  .activity-card{
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-m);
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .activity-card:last-child{ margin-bottom: 0; }
+  .activity-head{
+    width: 100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 16px;
+    padding: 22px 26px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    color: var(--text);
+    font-family: "Outfit", sans-serif;
+  }
+  .activity-head-text h3{
+    font-size: 1.08rem;
+    font-weight: 600;
+  }
+  .activity-date{
+    font-size: 0.85rem;
+    color: var(--text-faint);
+    margin-top: 4px;
+    font-family: "Source Sans 3", sans-serif;
+  }
+  .activity-chevron{
+    flex-shrink:0;
+    width: 20px; height: 20px;
+    color: var(--text-faint);
+    transition: transform .25s ease;
+  }
+  .activity-card.is-open .activity-chevron{ transform: rotate(180deg); }
+  .activity-body{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease;
+  }
+  .activity-card.is-open .activity-body{ max-height: 1400px; }
+  .activity-body-inner{
+    padding: 0 26px 26px;
+  }
+  .activity-block{ margin-bottom: 20px; }
+  .activity-block:last-child{ margin-bottom: 0; }
+  .activity-block h4{
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-faint);
+    margin: 0 0 10px;
+  }
+  .activity-block p{
+    color: var(--text-dim);
+    font-size: 0.94rem;
+    margin: 0;
+  }
+  .activity-statement{
+    border-left: 2px solid var(--accent-line);
+    padding-left: 16px;
+    color: var(--text-dim);
+    font-size: 0.94rem;
+  }
+  .activity-code{
+    background: var(--bg-raised-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-s);
+    padding: 18px 20px;
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #b8ecff;
+    overflow-x: auto;
+    white-space: pre;
+  }
+
   /* ---------- Contato / Footer ---------- */
   #contato{
     border-top: 1px solid var(--line);
@@ -517,6 +633,8 @@
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#projetos">Projetos</a></li>
       <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#diario">Diário de Bordo</a></li>
+      <li><a href="#atividades">Atividades</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
@@ -601,6 +719,26 @@
       </div>
 
       <div class="reveal">
+        <div class="info-card">
+          <h3>Identificação Institucional</h3>
+          <div class="info-row">
+            <span class="label">Curso</span>
+            <span class="meta">DSM — Fatec Indaiatuba</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Disciplina</span>
+            <span class="meta"><!-- TODO: nome da disciplina --></span>
+          </div>
+          <div class="info-row">
+            <span class="label">Perfil</span>
+            <span class="meta">Desenvolvedor Backend / Full-Stack Jr.</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Contato</span>
+            <span class="meta">jvlimmaa08@gmail.com</span>
+          </div>
+        </div>
+
         <div class="info-card">
           <h3>Formação Acadêmica</h3>
           <div class="info-row">
@@ -727,6 +865,273 @@
           <li>Manutenção da rotina de banco de dados e auxílio na gestão de dados internos.</li>
           <li>Apoio na infraestrutura de TI e suporte aos sistemas web da escola.</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="diario">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Diário de bordo acadêmico</h2>
+      <p>Registro sequencial de aulas, eventos e projetos vivenciados ao longo do curso.</p>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="journal-item">
+        <span class="journal-kind">Aula</span>
+        <div class="timeline-date"><!--data--> 09/09/2026</div>
+        <h3>Aula Interdisciplinar com o Professor Fragoso</h3>
+        <p>Aula diferenciada conduzida pelo Professor Fragoso na disciplina de Algoritmos e Lógica de Programação.</p>
+      </div>
+      <div class="journal-item">
+        <span class="journal-kind">Evento</span>
+        <div class="timeline-date"><!-- TODO: data --> 09/09/2026</div>
+        <h3>Palestra sobre o Mercado de Trabalho na área de TI — SAP</h3>
+        <p>Palestra sobre as oportunidades, exigências e caminhos de carreira no mercado de tecnologia, com foco no ecossistema SAP.</p>
+      </div>
+      <!--adicione aqui novas aulas, eventos ou projetos conforme forem acontecendo-->
+      <div class="journal-item">
+        <span class="journal-kind">Projeto</span>
+        <div class="timeline-date">dd/mm/aaaa</div>
+        <h3>Nome do projeto desenvolvido em disciplina</h3>
+        <p>Contexto do projeto, papel exercido e principais desafios superados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="atividades">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Repositório de atividades avaliativas</h2>
+      <p>Enunciado original, resolução comentada, data de realização e reflexão individual sobre cada atividade da disciplina de Algoritmos e Lógica de Programação.</p>
+    </div>
+
+    <div class="activity-card reveal">
+      <button class="activity-head" onclick="this.parentElement.classList.toggle('is-open')">
+        <div class="activity-head-text">
+          <h3>Lista de Exercícios — Condicionais e Repetição</h3>
+          <div class="activity-date">Realizada em <!--data -->24/08/2026</div>
+        </div>
+        <svg class="activity-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="activity-body">
+        <div class="activity-body-inner">
+          <div class="activity-block">
+            <h4>Enunciado (reconstruído a partir da resolução)</h4>
+            <p class="activity-statement">
+              Exercício 1: crie um programa que cadastre uma senha, validando se ela possui pelo menos 8 caracteres
+              e se contém o caractere "@". Caso a senha seja inválida, informe qual das duas regras não foi atendida.<br><br>
+              Exercício 2: crie um jogo de adivinhação em que o computador sorteia um número secreto entre 1 e 20 e
+              o jogador tem 5 tentativas para acertar, recebendo a dica se o palpite é maior ou menor que o número secreto.
+            </p>
+          </div>
+          <div class="activity-block">
+            <h4>Resolução — Exercício 1 (Python)</h4>
+            <div class="activity-code">print("--- VALIDADOR DE SENHA ---")
+
+senha = input("Digite uma senha para cadastrar: ")
+
+tem_tamanho = len(senha) &gt;= 8
+tem_arroba = "@" in senha
+
+if tem_tamanho and tem_arroba:
+    print("Senha cadastrada com sucesso! (Forte)")
+else:
+    print("Senha inválida!")
+    if not tem_tamanho:
+        print("- A senha deve ter pelo menos 8 caracteres.")
+    if not tem_arroba:
+        print("- A senha deve conter o caractere '@'.")</div>
+          </div>
+          <div class="activity-block">
+            <h4>Resolução — Exercício 1 (VisuAlg)</h4>
+            <div class="activity-code">Algoritmo "ValidadorDeSenha"
+Var
+   senha: caractere
+   tamanho: inteiro
+   temArroba: logico
+   i: inteiro
+Inicio
+   Escreval("--- VALIDADOR DE SENHA ---")
+   Escreva("Digite uma senha para cadastrar: ")
+   Leia(senha)
+
+   tamanho &lt;- Compr(senha)
+   temArroba &lt;- Falso
+
+   // Verifica se existe '@' na senha
+   Para i De 1 Ate tamanho Faca
+      Se Cpia(senha, i, 1) = "@" Entao
+         temArroba &lt;- Verdadeiro
+      FimSe
+   FimPara
+
+   Se (tamanho &gt;= 8) E temArroba Entao
+      Escreval("Senha cadastrada com sucesso! (Forte)")
+   Senao
+      Escreval("Senha inválida!")
+      Se tamanho &lt; 8 Entao
+         Escreval("- A senha deve ter pelo menos 8 caracteres.")
+      FimSe
+      Se NAO temArroba Entao
+         Escreval("- A senha deve conter o caractere '@'.")
+      FimSe
+   FimSe
+Fimalgoritmo</div>
+          </div>
+          <div class="activity-block">
+            <h4>Resolução — Exercício 2 (Python)</h4>
+            <div class="activity-code">import random
+
+numero_secreto = random.randint(1, 20)
+tentativas_restantes = 5
+acertou = False
+
+print("--- JOGO DA ADIVINHAÇÃO (1 a 20) ---")
+
+while tentativas_restantes &gt; 0 and not acertou:
+    print(f"\nVocê tem {tentativas_restantes} tentativa(s).")
+    chute = int(input("Digite o seu palpite: "))
+
+    if chute == numero_secreto:
+        print("Parabéns! Você acertou o número secreto!")
+        acertou = True
+    elif chute &lt; numero_secreto:
+        print("O número secreto é MAIOR.")
+        tentativas_restantes -= 1
+    else:
+        print("O número secreto é MENOR.")
+        tentativas_restantes -= 1
+
+if not acertou:
+    print(f"\nQue pena! Suas tentativas acabaram. O número era {numero_secreto}.")</div>
+          </div>
+          <div class="activity-block">
+            <h4>Resolução — Exercício 2 (VisuAlg)</h4>
+            <div class="activity-code">Algoritmo "JogoAdivinhacao"
+Var
+   numeroSecreto, chute, tentativasRestantes: inteiro
+   acertou: logico
+Inicio
+   // Randi(20) gera entre 0 e 19, por isso somamos 1 para ir de 1 a 20
+   numeroSecreto &lt;- Randi(20) + 1
+   tentativasRestantes &lt;- 5
+   acertou &lt;- Falso
+
+   Escreval("--- JOGO DA ADIVINHAÇÃO (1 a 20) ---")
+
+   Enquanto (tentativasRestantes &gt; 0) E (NAO acertou) Faca
+      Escreval("")
+      Escreval("Você tem ", tentativasRestantes, " tentativa(s).")
+      Escreva("Digite o seu palpite: ")
+      Leia(chute)
+
+      Se chute = numeroSecreto Entao
+         Escreval("Parabéns! Você acertou o número secreto!")
+         acertou &lt;- Verdadeiro
+      Senao
+         Se chute &lt; numeroSecreto Entao
+            Escreval("O número secreto é MAIOR.")
+         Senao
+            Escreval("O número secreto é MENOR.")
+         FimSe
+         tentativasRestantes &lt;- tentativasRestantes - 1
+      FimSe
+   FimEnquanto
+
+   Se NAO acertou Entao
+      Escreval("")
+      Escreval("Que pena! Suas tentativas acabaram. O número era ", numeroSecreto, ".")
+   FimSe
+Fimalgoritmo</div>
+          </div>
+          <div class="activity-block">
+            <h4>Reflexão individual</h4>
+            <p><!--escreva aqui, com suas palavras, o que você aprendeu, quais dificuldades enfrentou e como as superou. --></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-card reveal">
+      <button class="activity-head" onclick="this.parentElement.classList.toggle('is-open')">
+        <div class="activity-head-text">
+          <h3>Avaliação 1 — Síntese Conceitual: Estruturas de Controle</h3>
+          <div class="activity-date">Disciplina: Algoritmos e Lógica de Programação · 1º Semestre · Prof.ª Waldinelly Costa · Prazo de entrega: 13/09/2026</div>
+        </div>
+        <svg class="activity-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="activity-body">
+        <div class="activity-body-inner">
+          <div class="activity-block">
+            <h4>Enunciado original</h4>
+            <p class="activity-statement">
+              Exercício 1 — Estrutura Sequencial: leia o valor da hora de trabalho, a quantidade de horas trabalhadas no
+              mês e o percentual de desconto do INSS. Calcule e exiba o salário bruto, o desconto e o salário líquido.<br><br>
+              Exercício 2 — Seleção Composta e Encadeada: leia duas notas de um aluno, calcule a média e determine a
+              situação: Aprovado (&gt;= 7.0), Recuperação (entre 5.0 e 6.9) ou Reprovado (&lt; 5.0).<br><br>
+              Exercício 3 — Repetição com while: some números inteiros informados pelo usuário até que um valor
+              negativo seja digitado (condição de parada).<br><br>
+              Exercício 4 — Repetição com for: calcule e exiba a tabuada de multiplicação de um número escolhido
+              pelo usuário.
+            </p>
+          </div>
+          <div class="activity-block">
+            <h4>Resolução — Exercício 1 (Estrutura Sequencial)</h4>
+            <div class="activity-code">horas_trabalhadas = float(input("Digite as horas trabalhadas: "))
+valor_hora = float(input("Digite o valor da hora: R$ "))
+percentual_inss = float(input("Digite o % de desconto do INSS: "))
+
+salario_bruto = horas_trabalhadas * valor_hora
+total_desconto = (percentual_inss / 100) * salario_bruto
+salario_liquido = salario_bruto - total_desconto
+
+print(f"Salário Bruto: R$ {salario_bruto:.2f}")
+print(f"Desconto INSS: R$ {total_desconto:.2f}")
+print(f"Salário Líquido: R$ {salario_liquido:.2f}")</div>
+          </div>
+          <div class="activity-block">
+            <h4>Resolução — Exercício 2 (Seleção Composta e Encadeada)</h4>
+            <div class="activity-code">nota1 = float(input("Digite a 1ª nota: "))
+nota2 = float(input("Digite a 2ª nota: "))
+
+media = (nota1 + nota2) / 2
+print(f"Média calculada: {media:.1f}")
+
+if media &gt;= 7.0:
+    print("Situação: APROVADO")
+elif media &gt;= 5.0:
+    print("Situação: RECUPERAÇÃO")
+else:
+    print("Situação: REPROVADO")</div>
+          </div>
+          <div class="activity-block">
+            <h4>Resolução — Exercício 3 (Repetição com while)</h4>
+            <div class="activity-code">soma = 0
+numero = int(input("Digite um número positivo (ou negativo para sair): "))
+
+while numero &gt;= 0:
+    soma += numero
+    numero = int(input("Digite o próximo número (ou negativo para encerrar): "))
+
+print(f"A soma total dos números digitados é: {soma}")</div>
+          </div>
+          <div class="activity-block">
+            <h4>Resolução — Exercício 4 (Repetição com for)</h4>
+            <div class="activity-code">num = int(input("Digite o número para gerar a tabuada: "))
+print(f"--- TABUADA DO {num} ---")
+
+for i in range(1, 11):
+    resultado = num * i
+    print(f"{num} x {i:2d} = {resultado}")</div>
+          </div>
+          <div class="activity-block">
+            <h4>Reflexão individual</h4>
+            <p>Por já fazer o curso técnico na FIEC, acompanhar as aulas de Algoritmos foi bem tranquilo de início, pois eu já tinha uma noção da lógica. Mas a experiência na FATEC fez toda a diferença: me ajudou a organizar muito melhor o raciocínio e deu um embasamento teórico e prático bem mais sólido. Consegui entender melhor o porquê de cada estrutura de controle, aperfeiçoar a escrita do código e ganhar mais confiança para encarar desafios e problemas mais complexos daqui para frente.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
