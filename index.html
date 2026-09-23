@@ -511,12 +511,15 @@
   }
   .activity-card.is-open .activity-chevron{ transform: rotate(180deg); }
   .activity-body{
-    max-height: 0;
+    display: grid;
+    grid-template-rows: 0fr;
     overflow: hidden;
-    transition: max-height .35s ease;
+    transition: grid-template-rows .35s ease;
   }
-  .activity-card.is-open .activity-body{ max-height: 1400px; }
+  .activity-card.is-open .activity-body{ grid-template-rows: 1fr; }
   .activity-body-inner{
+    min-height: 0;
+    overflow: hidden;
     padding: 0 26px 26px;
   }
   .activity-block{ margin-bottom: 20px; }
@@ -688,6 +691,7 @@
             <span class="badge">Java</span>
             <span class="badge">Python</span>
             <span class="badge">JavaScript</span>
+            <span class="badge">TypeScript</span>
             <span class="badge">HTML5</span>
             <span class="badge">CSS3</span>
           </div>
@@ -697,6 +701,7 @@
           <div class="badges">
             <span class="badge">SQL</span>
             <span class="badge">MySQL</span>
+            <span class="badge">PostgreSQL</span>
           </div>
         </div>
         <div class="skill-group">
@@ -880,17 +885,17 @@
     <div class="timeline reveal">
       <div class="journal-item">
         <span class="journal-kind">Aula</span>
-        <div class="timeline-date"><!--data--> 09/09/2026</div>
+        <div class="timeline-date"><!-- TODO: data --> dd/mm/aaaa</div>
         <h3>Aula Interdisciplinar com o Professor Fragoso</h3>
         <p>Aula diferenciada conduzida pelo Professor Fragoso na disciplina de Algoritmos e Lógica de Programação.</p>
       </div>
       <div class="journal-item">
         <span class="journal-kind">Evento</span>
-        <div class="timeline-date"><!-- TODO: data --> 09/09/2026</div>
+        <div class="timeline-date"><!-- TODO: data --> dd/mm/aaaa</div>
         <h3>Palestra sobre o Mercado de Trabalho na área de TI — SAP</h3>
         <p>Palestra sobre as oportunidades, exigências e caminhos de carreira no mercado de tecnologia, com foco no ecossistema SAP.</p>
       </div>
-      <!--adicione aqui novas aulas, eventos ou projetos conforme forem acontecendo-->
+      <!-- TODO: adicione aqui novas aulas, eventos ou projetos conforme forem acontecendo -->
       <div class="journal-item">
         <span class="journal-kind">Projeto</span>
         <div class="timeline-date">dd/mm/aaaa</div>
@@ -912,7 +917,7 @@
       <button class="activity-head" onclick="this.parentElement.classList.toggle('is-open')">
         <div class="activity-head-text">
           <h3>Lista de Exercícios — Condicionais e Repetição</h3>
-          <div class="activity-date">Realizada em <!--data -->24/08/2026</div>
+          <div class="activity-date">Realizada em <!-- TODO: data -->dd/mm/aaaa</div>
         </div>
         <svg class="activity-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
@@ -1049,7 +1054,7 @@ Fimalgoritmo</div>
           </div>
           <div class="activity-block">
             <h4>Reflexão individual</h4>
-            <p><!--escreva aqui, com suas palavras, o que você aprendeu, quais dificuldades enfrentou e como as superou. --></p>
+            <p><!-- TODO: escreva aqui, com suas palavras, o que você aprendeu, quais dificuldades enfrentou e como as superou. --></p>
           </div>
         </div>
       </div>
@@ -1131,6 +1136,234 @@ for i in range(1, 11):
             <h4>Reflexão individual</h4>
             <p>Por já fazer o curso técnico na FIEC, acompanhar as aulas de Algoritmos foi bem tranquilo de início, pois eu já tinha uma noção da lógica. Mas a experiência na FATEC fez toda a diferença: me ajudou a organizar muito melhor o raciocínio e deu um embasamento teórico e prático bem mais sólido. Consegui entender melhor o porquê de cada estrutura de controle, aperfeiçoar a escrita do código e ganhar mais confiança para encarar desafios e problemas mais complexos daqui para frente.</p>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-card reveal">
+      <button class="activity-head" onclick="this.parentElement.classList.toggle('is-open')">
+        <div class="activity-head-text">
+          <h3>Lista de Exercícios — Capítulos 1,2, e 3(Fixação)</h3>
+          <div class="activity-date">Exercícios propostos dos Capítulos 1 e 2</div>
+        </div>
+        <svg class="activity-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="activity-body">
+        <div class="activity-body-inner">
+
+          <div class="activity-block">
+            <h4>Capítulo 1 — Questão 1 (Raciocínio Lógico)</h4>
+            <p class="activity-statement">
+              No torneio de atletismo, Barnabé, Gumercindo e Teodoro participaram das provas de 100 metros rasos, salto
+              em distância e arremesso de dardo. Cada um deles conseguiu um primeiro, um segundo e um terceiro lugar.
+              Descubra o que cada um conquistou, sabendo que: a) Gumercindo venceu Barnabé no salto em distância;
+              b) Teodoro chegou atrás de Gumercindo no arremesso de dardo; c) Barnabé não chegou em primeiro nos 100
+              metros rasos.
+            </p>
+            <p>
+              <strong>Resolução:</strong> pela condição (a), Gumercindo ficou em 1º ou 2º no salto — nunca em 3º. Pela
+              condição (b), Gumercindo também não pode ser 3º no arremesso, logo sua única 3ª colocação possível é nos
+              100 m rasos. Como Barnabé não foi 1º nos 100 m e Gumercindo já é 3º nessa prova, Barnabé fica em 2º e
+              Teodoro em 1º. No salto, testando as posições restantes, Gumercindo fica em 1º, Teodoro em 2º e Barnabé
+              em 3º. Por eliminação, no arremesso de dardo: Barnabé 1º, Gumercindo 2º e Teodoro 3º.
+            </p>
+          </div>
+
+          <div class="activity-block">
+            <h4>Capítulo 1 — Questão 2 (Barris)</h4>
+            <p class="activity-statement">
+              João tem três barris: A (capacidade 8 L, vazio), B (capacidade 5 L) e C (capacidade 3 L). O que ele deve
+              fazer para deixar os barris A e B com 4 litros cada e o C vazio?
+            </p>
+            <p>
+              <strong>Resolução:</strong> estado inicial A=0, B=5, C=3. Despeja C em A (A=3, B=5, C=0); despeja B em C
+              até encher (A=3, B=2, C=3); despeja C em A (A=6, B=2, C=0); despeja B em C (A=6, B=0, C=2); despeja A em
+              B até encher (A=1, B=5, C=2); despeja B em C até encher (A=1, B=4, C=3); despeja C em A (A=4, B=4, C=0) —
+              resultado final: A e B com 4 litros cada e C vazio.
+            </p>
+          </div>
+
+          <div class="activity-block">
+            <h4>Capítulo 1 — Questão 3 (Algoritmo da Troca de Pneu)</h4>
+            <p class="activity-statement">
+              Com base nos algoritmos de troca de lâmpadas, elabore um algoritmo com os passos para trocar um pneu
+              furado, considerando: a) trocar o pneu traseiro esquerdo; b) trocar o pneu traseiro esquerdo verificando
+              antes se o estepe está em condições de uso; c) verificar se existe algum pneu furado e, se houver,
+              verificar o estepe e então trocar o pneu correto.
+            </p>
+            <div class="activity-code">a) 1. Abrir o porta-malas
+2. Pegar estepe, macaco e chave de roda
+3. Encaixar a chave de roda nos parafusos do pneu traseiro esquerdo
+4. Desafrouxar todos os parafusos da roda
+5. Posicionar o macaco na lateral esquerda do carro
+6. Utilizar o macaco para erguer o carro
+7. Desparafusar por completo todos os parafusos da roda
+8. Retirar os parafusos
+9. Retirar o pneu murcho
+10. Colocar o estepe
+11. Encaixar de volta os parafusos
+12. Parafusar parcialmente os parafusos
+13. Utilizar o macaco para descer o carro
+14. Parafusar de volta todos os parafusos do novo pneu
+
+b) 1. Abrir o porta-malas
+2. Pegar o estepe, o macaco e a chave de roda
+3. Verificar se o pneu reserva está em condições de uso
+4. Se estiver em boas condições, encaixar a chave nos parafusos do pneu traseiro esquerdo; senão, finalizar o
+   procedimento para buscar assistência
+5. Desafrouxar todos os parafusos da roda
+6. Posicionar o macaco na lateral esquerda do carro
+7. Utilizar o macaco para erguer o carro
+8. Desparafusar por completo todos os parafusos da roda
+9. Retirar os parafusos
+10. Retirar o pneu murcho
+11. Colocar o estepe
+12. Encaixar de volta os parafusos
+13. Utilizar o macaco para descer o carro
+14. Parafusar de volta todos os parafusos do novo pneu
+
+c) 1. Verificar todos os pneus do carro
+2. Identificar se existe algum pneu furado
+3. Se não houver pneu furado, finalizar o procedimento
+4. Se houver, identificar qual pneu precisa ser trocado
+5. Abrir o porta-malas
+6. Pegar o estepe, o macaco e a chave de roda
+7. Verificar se o pneu reserva está em condições de uso
+8. Se estiver em boas condições, encaixar a chave nos parafusos do pneu furado; senão, finalizar o procedimento
+   para buscar assistência
+9. Desafrouxar todos os parafusos da roda
+10. Posicionar o macaco próximo ao pneu que será trocado
+11. Utilizar o macaco para erguer o carro
+12. Desparafusar por completo todos os parafusos da roda
+13. Retirar os parafusos
+14. Retirar o pneu furado
+15. Colocar o estepe
+16. Encaixar de volta os parafusos
+17. Utilizar o macaco para descer o carro
+18. Parafusar de volta todos os parafusos do novo pneu
+19. Finalizar o procedimento</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Capítulo 1 — Questão 4 (Torre de Hanói, 4 discos)</h4>
+            <p class="activity-statement">
+              A partir do Exercício de fixação 1.3, amplie a solução apresentada para completar a operação de troca dos
+              discos da torre A para a torre B, considerando a existência de 4 discos.
+            </p>
+            <div class="activity-code">1. mover o disco 1 da torre A para a torre C
+2. mover o disco 2 da torre A para a torre B
+3. mover o disco 1 da torre C para a torre B
+4. mover o disco 3 da torre A para a torre C
+5. mover o disco 1 da torre B para a torre A
+6. mover o disco 2 da torre B para a torre C
+7. mover o disco 1 da torre A para a torre C
+8. mover o disco 4 da torre A para a torre B
+9. mover o disco 1 da torre C para a torre B
+10. mover o disco 2 da torre C para a torre A
+11. mover o disco 1 da torre B para a torre A
+12. mover o disco 3 da torre C para a torre B
+13. mover o disco 1 da torre A para a torre C
+14. mover o disco 2 da torre A para a torre B
+15. mover o disco 1 da torre C para a torre B</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Capítulo 1 — Questão 5 (Calculadora sem × e ÷)</h4>
+            <p class="activity-statement">
+              Considere uma calculadora com as teclas de divisão e multiplicação inoperantes. Escreva algoritmos que
+              resolvam, usando apenas adição e subtração: a) 12 × 4; b) 23 × 11; c) 10 ÷ 2; d) 175 ÷ 7; e) 2⁸.
+            </p>
+            <div class="activity-code">a) resultado &lt;- 0
+   resultado &lt;- resultado + 12   (repetido 4 vezes)
+   resultado = 48
+
+b) resultado &lt;- 0
+   repita 11 vezes: resultado &lt;- resultado + 23
+   resultado = 253
+
+c) resto &lt;- 10; resultado &lt;- 0
+   enquanto resto &gt; 0: resto &lt;- resto - 2; resultado &lt;- resultado + 1
+   resultado = 5
+
+d) resto &lt;- 175; resultado &lt;- 0
+   enquanto resto &gt; 0: resto &lt;- resto - 7; resultado &lt;- resultado + 1
+   resultado = 25
+
+e) resultado &lt;- 1
+   resultado &lt;- resultado + resultado   (repetido 8 vezes: 2, 4, 8, 16, 32, 64, 128, 256)
+   resultado = 256</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Capítulo 2 — Questão 1 (Leitura de Trecho de Algoritmo)</h4>
+            <p class="activity-statement">
+              Utilizando o trecho de algoritmo abaixo, explique o que acontece em cada linha e qual é o resultado de
+              cada ação executada.
+            </p>
+            <div class="activity-code">inteiro: X, Y;
+real: Z;
+leia (X);
+escreva (X, "elevado ao cubo =", pot(x,3));
+leia (Y);
+escreva (X + Y);
+Z &lt;- X/Y;
+escreva (Z);
+Z &lt;- Z + 1;
+X &lt;- (Y + X) mod 2;
+escreva (X);</div>
+            <p>
+              <strong>Resolução:</strong> declara X e Y como inteiros e Z como real; lê X e exibe X elevado ao cubo; lê
+              Y e exibe a soma de X e Y; calcula Z como X dividido por Y e exibe o resultado; incrementa Z em uma
+              unidade; recalcula X como o resto da divisão de (Y + X) por 2 e exibe o novo valor de X.
+            </p>
+          </div>
+
+          <div class="activity-block">
+            <h4>Capítulo 2 — Questão 2 (Entrada, Processamento e Saída no dia a dia)</h4>
+            <p class="activity-statement">
+              Cite e discorra sobre três exemplos do seu dia a dia nos quais você encontra explicitados entrada, saída
+              e processamento.
+            </p>
+            <p>
+              <strong>Resolução:</strong> 1) Liquidificador — entrada: frutas e água; processamento: bater os
+              ingredientes; saída: o suco pronto. 2) Air fryer — entrada: o alimento; processamento: ajuste de
+              temperatura e tempo; saída: o alimento pronto quando o timer zera. 3) Fazer café — entrada: pó de café e
+              água quente no filtro; processamento: a água passa pelo pó; saída: o café filtrado na jarra.
+            </p>
+          </div>
+
+          <div class="activity-block">
+            <h4>Capítulo 2 — Questão 3 (Analogia: leitura e diálogo)</h4>
+            <p class="activity-statement">
+              Faça uma analogia de entrada, processamento e saída de dados com o que acontece quando você: a) lê e
+              sintetiza um livro; b) dialoga com outra pessoa.
+            </p>
+            <p>
+              <strong>Resolução:</strong> a) a entrada é a leitura dos capítulos; o processamento é a análise do
+              conteúdo combinada com o conhecimento prévio; a saída é a síntese e a reflexão construída a partir dos
+              principais pontos. b) a entrada é a fala da outra pessoa; o processamento é a interpretação do que foi
+              dito; a saída é a resposta escolhida após esse processamento.
+            </p>
+          </div>
+
+          <div class="activity-block">
+            <h4>Trabalho Temático — Exercício 4 (Repetição com for)</h4>
+            <p class="activity-statement">
+              Calcular e exibir a tabuada de multiplicação de um número escolhido pelo usuário.
+            </p>
+            <div class="activity-code">num = int(input("Digite o número para gerar a tabuada: "))
+print(f"--- TABUADA DO {num} ---")
+
+for i in range(1, 11):
+    resultado = num * i
+    print(f"{num} x {i:2d} = {resultado}")</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Reflexão individual</h4>
+            <p><!-- TODO: escreva aqui, com suas palavras, o que você aprendeu, quais dificuldades enfrentou e como as superou. --></p>
+          </div>
+
         </div>
       </div>
     </div>
