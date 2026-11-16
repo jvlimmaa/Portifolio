@@ -770,6 +770,10 @@
             <span class="label">Formação Desenvolvimento Web e Práticas Ágeis</span>
             <span class="meta">Alura / DIO.me · 2026</span>
           </div>
+          <div class="info-row">
+            <span class="label">Conceitos Básicos de Redes (Networking Basics)</span>
+            <span class="meta">Cisco Networking Academy · 2026</span>
+          </div>
         </div>
 
         <div class="info-card">
@@ -1364,6 +1368,506 @@ for i in range(1, 11):
             <p>
               Aprender a programar é, acima de tudo, aprender a pensar. Mais do que decorar comandos, o que fica é a capacidade de encarar desafios de um jeito mais estruturado, lógico e prático.
             </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-card reveal">
+      <button class="activity-head" onclick="this.parentElement.classList.toggle('is-open')">
+        <div class="activity-head-text">
+          <h3>Algoritmos em Portugol — Sequenciação, Seleção e Repetição</h3>
+          <div class="activity-date">Disciplina: Algoritmos e Lógica de Programação · 19 algoritmos em Portugol (VisuAlg)</div>
+        </div>
+        <svg class="activity-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="activity-body">
+        <div class="activity-body-inner">
+
+          <div class="activity-block">
+            <h4>Sobre a atividade</h4>
+            <p class="activity-statement">
+              Coletânea de algoritmos em Portugol organizada por estrutura de controle: 5 de sequenciação, 6 de seleção e 8 de repetição. Os enunciados abaixo foram reconstruídos a partir de cada resolução.
+            </p>
+          </div>
+
+          <div class="activity-block">
+            <h4>Sequenciação 1.1 — Média Ponderada</h4>
+            <p class="activity-statement">Leia 5 números e calcule a média ponderada, em que cada número tem peso igual à sua posição (1 a 5).</p>
+            <div class="activity-code">Algoritmo "MediaPonderada"
+Var
+   n1, n2, n3, n4, n5, media : Real
+Inicio
+   Escreva("Digite os 5 numeros: ")
+   Leia(n1, n2, n3, n4, n5)
+   // Multiplica cada número pelo seu peso, soma tudo e divide pela soma dos pesos (1+2+3+4+5 = 15)
+   media &lt;- (n1*1 + n2*2 + n3*3 + n4*4 + n5*5) / (1 + 2 + 3 + 4 + 5)
+   Escreva("A media ponderada e: ", media)
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Sequenciação 1.2 — Área do Círculo</h4>
+            <p class="activity-statement">Leia o raio de um círculo e calcule sua área (A = π × r²), aproximando π por 3.14159.</p>
+            <div class="activity-code">Algoritmo "AreaCirculo"
+Var
+   raio, area : Real
+Inicio
+   Escreva("Digite o raio do circulo: ")
+   Leia(raio)
+   // Eleva o raio ao quadrado e multiplica por π
+   area &lt;- 3.14159 * (raio ^ 2)
+   Escreva("A area do circulo e: ", area)
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Sequenciação 1.3 — Inversão de Número (3 dígitos)</h4>
+            <p class="activity-statement">Leia um número de 3 dígitos e exiba-o invertido (ex.: 123 vira 321).</p>
+            <div class="activity-code">Algoritmo "InverterNumero"
+Var
+   num, centena, dezena, unidade, numInvertido : Inteiro
+Inicio
+   Escreva("Digite um numero de 3 digitos: ")
+   Leia(num)
+   // Centena: divisão inteira por 100
+   centena &lt;- num div 100
+   // Dezena: pega o resto da divisão por 100 e divide por 10
+   dezena &lt;- (num mod 100) div 10
+   // Unidade: resto da divisão por 10
+   unidade &lt;- num mod 10
+   // Remonta o número: a unidade vira centena e a centena vira unidade
+   numInvertido &lt;- (unidade * 100) + (dezena * 10) + centena
+   Escreva("Numero invertido: ", numInvertido)
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Sequenciação 1.4 — Consumo e Autonomia</h4>
+            <p class="activity-statement">Dados a capacidade do tanque, os litros abastecidos para enchê-lo e os km percorridos, calcule o consumo médio (km/L) e a autonomia que o carro tinha antes do abastecimento.</p>
+            <div class="activity-code">Algoritmo "ConsumoAutonomia"
+Var
+   capacidadeTanque, litrosAbastecidos, kmPercorridos : Real
+   consumoMedio, autonomiaRestante : Real
+Inicio
+   Escreva("Capacidade total do tanque (L): ")
+   Leia(capacidadeTanque)
+   Escreva("Litros abastecidos para encher: ")
+   Leia(litrosAbastecidos)
+   Escreva("Quilometragem percorrida: ")
+   Leia(kmPercorridos)
+   // Consumo médio = km percorridos / litros gastos
+   consumoMedio &lt;- kmPercorridos / litrosAbastecidos
+   // Litros que já havia no tanque antes de abastecer = capacidade - litros abastecidos
+   // Multiplica esses litros pelo consumo para estimar a autonomia
+   autonomiaRestante &lt;- (capacidadeTanque - litrosAbastecidos) * consumoMedio
+   Escreval("Consumo medio: ", consumoMedio, " km/L")
+   Escreval("Autonomia antes do abastecimento: ", autonomiaRestante, " km")
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Sequenciação 1.5 — Idade em Anos, Meses e Dias</h4>
+            <p class="activity-statement">Dadas a data de nascimento e a data atual, calcule a idade aproximada em anos, meses e dias (ano com 365 dias e mês com 30 dias).</p>
+            <div class="activity-code">Algoritmo "CalculoIdade"
+Var
+   diaNasc, mesNasc, anoNasc : Inteiro
+   diaAtual, mesAtual, anoAtual : Inteiro
+   totalDiasNasc, totalDiasAtual, difDias : Inteiro
+   anos, meses, dias : Inteiro
+Inicio
+   Escreva("Data de nascimento (DD MM AAAA): ")
+   Leia(diaNasc, mesNasc, anoNasc)
+   Escreva("Data atual (DD MM AAAA): ")
+   Leia(diaAtual, mesAtual, anoAtual)
+   // Converte cada data em um total aproximado de dias
+   totalDiasNasc &lt;- (anoNasc * 365) + (mesNasc * 30) + diaNasc
+   totalDiasAtual &lt;- (anoAtual * 365) + (mesAtual * 30) + diaAtual
+   // Diferença entre as duas datas, em dias
+   difDias &lt;- totalDiasAtual - totalDiasNasc
+   // Converte a diferença de volta em anos, meses e dias
+   anos &lt;- difDias div 365
+   meses &lt;- (difDias mod 365) div 30
+   dias &lt;- (difDias mod 365) mod 30
+   Escreva("Idade: ", anos, " anos, ", meses, " meses e ", dias, " dias.")
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Sequenciação 1.6 — Comerciante Maluco</h4>
+            <p class="activity-statement">Aplique um acréscimo de 10% e depois um desconto de 10% sobre o valor original de uma prestação; mostre o valor final pago e o prejuízo do comerciante.</p>
+            <div class="activity-code">Algoritmo "ComercianteMaluco"
+Var
+   valorOriginal, valorComAcrescimo, valorFinal, prejuizo : Real
+Inicio
+   Escreva("Digite o valor original da prestacao: ")
+   Leia(valorOriginal)
+   // Acréscimo de 10%: multiplica por 1.10
+   valorComAcrescimo &lt;- valorOriginal * 1.10
+   // Desconto de 10%: multiplica por 0.90
+   valorFinal &lt;- valorComAcrescimo * 0.90
+   // Prejuízo = valor original - valor final pago
+   prejuizo &lt;- valorOriginal - valorFinal
+   Escreval("Valor final a pagar: R$ ", valorFinal)
+   Escreval("Prejuizo do comerciante: R$ ", prejuizo)
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Seleção 2.1 — Nome do Mês</h4>
+            <p class="activity-statement">Mostre o nome do mês de acordo com o número digitado (1 a 12), tratando números inválidos.</p>
+            <div class="activity-code">Algoritmo "NomeMes"
+Var
+   mes : Inteiro
+Inicio
+   Escreva("Digite o numero do mes (1 a 12): ")
+   Leia(mes)
+   // Escolha: compara o número com cada caso e executa o bloco correspondente
+   Escolha mes
+      Caso 1 : Escreva("Janeiro")
+      Caso 2 : Escreva("Fevereiro")
+      Caso 3 : Escreva("Marco")
+      Caso 4 : Escreva("Abril")
+      Caso 5 : Escreva("Maio")
+      Caso 6 : Escreva("Junho")
+      Caso 7 : Escreva("Julho")
+      Caso 8 : Escreva("Agosto")
+      Caso 9 : Escreva("Setembro")
+      Caso 10 : Escreva("Outubro")
+      Caso 11 : Escreva("Novembro")
+      Caso 12 : Escreva("Dezembro")
+      // Qualquer número fora de 1 a 12 cai aqui
+      Outrocaso : Escreva("Mes invalido!")
+   Fimescolha
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Seleção 2.2 — Validação de Data</h4>
+            <p class="activity-statement">Verifique se uma data (dia, mês e ano) existe no calendário, considerando o limite de dias de cada mês e os anos bissextos.</p>
+            <div class="activity-code">Algoritmo "ValidarData"
+Var
+   dia, mes, ano : Inteiro
+   bissexto, valida : Logico
+Inicio
+   Escreva("Digite dia, mes e ano (DD MM AAAA): ")
+   Leia(dia, mes, ano)
+   // Ano bissexto: divisível por 4 e não por 100, ou divisível por 400
+   bissexto &lt;- ((ano mod 4 = 0) e (ano mod 100 &lt;&gt; 0)) ou (ano mod 400 = 0)
+   valida &lt;- Verdadeiro
+   // Mês ou dia menor que 1, ou mês maior que 12, já invalida a data
+   Se (mes &lt; 1) ou (mes &gt; 12) ou (dia &lt; 1) entao
+      valida &lt;- Falso
+   Senao
+      Escolha mes
+         // Meses com 31 dias
+         Caso 1, 3, 5, 7, 8, 10, 12
+            Se dia &gt; 31 entao: valida &lt;- Falso
+         // Meses com 30 dias
+         Caso 4, 6, 9, 11
+            Se dia &gt; 30 entao: valida &lt;- Falso
+         // Fevereiro: 29 dias em ano bissexto, 28 nos demais
+         Caso 2
+            Se (bissexto e (dia &gt; 29)) ou (nao bissexto e (dia &gt; 28)) entao
+               valida &lt;- Falso
+            FimSe
+      FimEscolha
+   FimSe
+   Se valida entao
+      Escreva("Data valida!")
+   Senao
+      Escreva("Data invalida!")
+   FimSe
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Seleção 2.3 — Signo do Zodíaco</h4>
+            <p class="activity-statement">Identifique o signo do zodíaco a partir do dia e do mês de nascimento.</p>
+            <div class="activity-code">Algoritmo "SignoZodiaco"
+Var
+   dia, mes : Inteiro
+Inicio
+   Escreva("Digite o dia e o mes de nascimento (DD MM): ")
+   Leia(dia, mes)
+   Se ((mes = 3) e (dia &gt;= 21)) ou ((mes = 4) e (dia &lt;= 19)) entao:
+      Escreva("Aries")
+   SenaoSe ((mes = 4) e (dia &gt;= 20)) ou ((mes = 5) e (dia &lt;= 20)) entao:
+      Escreva("Touro")
+   SenaoSe ((mes = 5) e (dia &gt;= 21)) ou ((mes = 6) e (dia &lt;= 20)) entao:
+      Escreva("Gemeos")
+   SenaoSe ((mes = 6) e (dia &gt;= 21)) ou ((mes = 7) e (dia &lt;= 22)) entao:
+      Escreva("Cancer")
+   SenaoSe ((mes = 7) e (dia &gt;= 23)) ou ((mes = 8) e (dia &lt;= 22)) entao:
+      Escreva("Leao")
+   SenaoSe ((mes = 8) e (dia &gt;= 23)) ou ((mes = 9) e (dia &lt;= 22)) entao:
+      Escreva("Virgem")
+   SenaoSe ((mes = 9) e (dia &gt;= 23)) ou ((mes = 10) e (dia &lt;= 22)) entao:
+      Escreva("Libra")
+   SenaoSe ((mes = 10) e (dia &gt;= 23)) ou ((mes = 11) e (dia &lt;= 21)) entao:
+      Escreva("Escorpiao")
+   SenaoSe ((mes = 11) e (dia &gt;= 22)) ou ((mes = 12) e (dia &lt;= 21)) entao:
+      Escreva("Sagitario")
+   SenaoSe ((mes = 12) e (dia &gt;= 22)) ou ((mes = 1) e (dia &lt;= 19)) entao:
+      Escreva("Capricornio")
+   SenaoSe ((mes = 1) e (dia &gt;= 20)) ou ((mes = 2) e (dia &lt;= 18)) entao:
+      Escreva("Aquario")
+   SenaoSe ((mes = 2) e (dia &gt;= 19)) ou ((mes = 3) e (dia &lt;= 20)) entao:
+      Escreva("Peixes")
+   // Nenhuma condição bateu: data inválida
+   Senao: Escreva("Data invalida")
+   FimSe
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Seleção 2.4 — Classe Eleitoral</h4>
+            <p class="activity-statement">Classifique o eleitor pela idade: menores de 16 não votam; de 16 a 17 anos e acima de 65 o voto é facultativo; os demais são obrigatórios.</p>
+            <div class="activity-code">Algoritmo "ClasseEleitoral"
+Var
+   idade : Inteiro
+Inicio
+   Escreva("Digite a idade: ")
+   Leia(idade)
+   Se idade &lt; 16 entao
+      Escreva("Nao votante")
+   SenaoSe ((idade &gt;= 16) e (idade &lt; 18)) ou (idade &gt; 65) entao
+      Escreva("Eleitor facultativo")
+   Senao
+      Escreva("Eleitor obrigatorio")
+   FimSe
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Seleção 2.5 — Classificação Olímpica (3 países)</h4>
+            <p class="activity-statement">Calcule a pontuação de três países por medalhas (ouro = 3, prata = 2, bronze = 1) e exiba a classificação do 1º ao 3º lugar.</p>
+            <div class="activity-code">Algoritmo "ClassificacaoOlimpica"
+Var
+   p1, p2, p3 : Caractere
+   o1, p_1, b1, pontos1 : Inteiro
+   o2, p_2, b2, pontos2 : Inteiro
+   o3, p_3, b3, pontos3 : Inteiro
+Inicio
+   // Leitura do País 1 e cálculo da pontuação
+   Escreva("Nome do Pais 1, Ouro, Prata e Bronze: ")
+   Leia(p1, o1, p_1, b1)
+   pontos1 &lt;- (o1 * 3) + (p_1 * 2) + (b1 * 1)
+   // Leitura do País 2 e cálculo da pontuação
+   Escreva("Nome do Pais 2, Ouro, Prata e Bronze: ")
+   Leia(p2, o2, p_2, b2)
+   pontos2 &lt;- (o2 * 3) + (p_2 * 2) + (b2 * 1)
+   // Leitura do País 3 e cálculo da pontuação
+   Escreva("Nome do Pais 3, Ouro, Prata e Bronze: ")
+   Leia(p3, o3, p_3, b3)
+   pontos3 &lt;- (o3 * 3) + (p_3 * 2) + (b3 * 1)
+   Escreval("--- CLASSIFICACAO ---")
+   // Descobre quem tem a maior pontuação (1º lugar) e ordena os outros dois pelo mesmo critério
+   Se (pontos1 &gt;= pontos2) e (pontos1 &gt;= pontos3) entao
+      Escreval("1o lugar: ", p1, " (", pontos1, " pts)")
+      Se pontos2 &gt;= pontos3 entao
+         Escreval("2o lugar: ", p2, " (", pontos2, " pts)")
+         Escreval("3o lugar: ", p3, " (", pontos3, " pts)")
+      Senao
+         Escreval("2o lugar: ", p3, " (", pontos3, " pts)")
+         Escreval("3o lugar: ", p2, " (", pontos2, " pts)")
+      FimSe
+   SenaoSe (pontos2 &gt;= pontos1) e (pontos2 &gt;= pontos3) entao
+      Escreval("1o lugar: ", p2, " (", pontos2, " pts)")
+      Se pontos1 &gt;= pontos3 entao
+         Escreval("2o lugar: ", p1, " (", pontos1, " pts)")
+         Escreval("3o lugar: ", p3, " (", pontos3, " pts)")
+      Senao
+         Escreval("2o lugar: ", p3, " (", pontos3, " pts)")
+         Escreval("3o lugar: ", p1, " (", pontos1, " pts)")
+      FimSe
+   Senao
+      Escreval("1o lugar: ", p3, " (", pontos3, " pts)")
+      Se pontos1 &gt;= pontos2 entao
+         Escreval("2o lugar: ", p1, " (", pontos1, " pts)")
+         Escreval("3o lugar: ", p2, " (", pontos2, " pts)")
+      Senao
+         Escreval("2o lugar: ", p2, " (", pontos2, " pts)")
+         Escreval("3o lugar: ", p1, " (", pontos1, " pts)")
+      FimSe
+   FimSe
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Repetição 3.1 — Mínimo Múltiplo Comum (MMC)</h4>
+            <p class="activity-statement">Calcule o MMC de dois números, partindo do maior e somando-o até achar um valor divisível pelos dois.</p>
+            <div class="activity-code">Algoritmo "MMC"
+Var
+   a, b, max, mmc : Inteiro
+Inicio
+   Escreva("Digite dois numeros: ")
+   Leia(a, b)
+   // Guarda o maior dos dois números como ponto de partida
+   Se a &gt; b entao: max &lt;- a Senao: max &lt;- b FimSe
+   mmc &lt;- max
+   // Enquanto o valor não for múltiplo de a e de b, soma o maior número novamente
+   Enquanto (mmc mod a &lt;&gt; 0) ou (mmc mod b &lt;&gt; 0) Faca
+      mmc &lt;- mmc + max
+   FimEnquanto
+   Escreva("O MMC entre ", a, " e ", b, " e: ", mmc)
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Repetição 3.2 — Máximo Divisor Comum (Algoritmo de Euclides)</h4>
+            <p class="activity-statement">Calcule o MDC de dois números pelo algoritmo de Euclides.</p>
+            <div class="activity-code">Algoritmo "MDC"
+Var
+   a, b, temp : Inteiro
+Inicio
+   Escreva("Digite dois numeros: ")
+   Leia(a, b)
+   Enquanto b &lt;&gt; 0 Faca
+      // Guarda b, calcula o resto de a por b e coloca o valor guardado em a
+      temp &lt;- b
+      b &lt;- a mod b
+      a &lt;- temp
+   FimEnquanto
+   Escreva("O MDC e: ", a)
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Repetição 3.3 — Quociente Inteiro sem Divisão</h4>
+            <p class="activity-statement">Calcule o quociente da divisão inteira sem usar o operador div, subtraindo o divisor do dividendo repetidamente.</p>
+            <div class="activity-code">Algoritmo "QuocienteSemDivisao"
+Var
+   dividendo, divisor, quociente : Inteiro
+Inicio
+   Escreva("Digite o dividendo e o divisor: ")
+   Leia(dividendo, divisor)
+   quociente &lt;- 0
+   // Enquanto o divisor ainda couber no dividendo, subtrai e soma 1 ao quociente
+   Enquanto dividendo &gt;= divisor Faca
+      dividendo &lt;- dividendo - divisor
+      quociente &lt;- quociente + 1
+   FimEnquanto
+   Escreva("O quociente inteiro e: ", quociente)
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Repetição 3.4 — Exponenciação sem Operador de Potência</h4>
+            <p class="activity-statement">Calcule base^expoente sem usar o operador de potência, multiplicando a base por ela mesma.</p>
+            <div class="activity-code">Algoritmo "Exponenciacao"
+Var
+   base, expoente, i, resultado : Inteiro
+Inicio
+   Escreva("Digite a base e o expoente inteiros: ")
+   Leia(base, expoente)
+   // Começa com 1, que é o elemento neutro da multiplicação
+   resultado &lt;- 1
+   // Repete a multiplicação pelo número de vezes indicado no expoente
+   Para i de 1 ate expoente Faca
+      resultado &lt;- resultado * base
+   FimPara
+   Escreva("Resultado: ", resultado)
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Repetição 3.5 — Série Tipo Fibonacci (20 termos)</h4>
+            <p class="activity-statement">Gere uma sequência de 20 termos em que cada termo é a soma dos dois anteriores, a partir de dois termos iniciais informados.</p>
+            <div class="activity-code">Algoritmo "SerieFibonacciCustom"
+Var
+   t1, t2, proximo, i : Inteiro
+Inicio
+   Escreva("Digite os 2 primeiros termos: ")
+   Leia(t1, t2)
+   Escreva(t1, ", ", t2)
+   // Os dois primeiros termos já foram exibidos; gera os próximos 18 (do 3º ao 20º)
+   Para i de 3 ate 20 Faca
+      // Novo termo = soma dos dois anteriores
+      proximo &lt;- t1 + t2
+      Escreva(", ", proximo)
+      // Desloca a janela: o penúltimo vira t1 e o último vira t2
+      t1 &lt;- t2
+      t2 &lt;- proximo
+   FimPara
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Repetição 3.6 — Maior e Menor Valor (termina com -1)</h4>
+            <p class="activity-statement">Leia valores inteiros até o usuário digitar -1 e informe o maior e o menor valor digitados.</p>
+            <div class="activity-code">Algoritmo "MaiorEMenor"
+Var
+   valor, maior, menor : Inteiro
+Inicio
+   Escreva("Digite um valor inteiro positivo (-1 para encerrar): ")
+   Leia(valor)
+   // Só processa se o primeiro valor já não for o -1 de encerramento
+   Se valor &lt;&gt; -1 entao
+      // O primeiro valor é o maior e o menor até que outros sejam lidos
+      maior &lt;- valor
+      menor &lt;- valor
+      Enquanto valor &lt;&gt; -1 Faca
+         // Atualiza o maior se o valor atual for maior
+         Se valor &gt; maior entao: maior &lt;- valor FimSe
+         // Atualiza o menor se o valor atual for menor
+         Se valor &lt; menor entao: menor &lt;- valor FimSe
+         Escreva("Digite o proximo valor (-1 para encerrar): ")
+         Leia(valor)
+      FimEnquanto
+      Escreval("Maior valor: ", maior)
+      Escreval("Menor valor: ", menor)
+   Senao
+      Escreval("Nenhum valor valido foi informado.")
+   FimSe
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Repetição 3.7 — Tabela Fahrenheit para Celsius (50 a 150)</h4>
+            <p class="activity-statement">Mostre uma tabela de conversão de graus Fahrenheit (50 a 150) para Celsius, usando C = 5/9 × (F - 32).</p>
+            <div class="activity-code">Algoritmo "TabelaFahrenheitCelsius"
+Var
+   f : Inteiro
+   c : Real
+Inicio
+   Escreval("Fahrenheit | Celsius")
+   Escreval("-------------------")
+   // Repete para cada temperatura Fahrenheit de 50 a 150
+   Para f de 50 ate 150 Faca
+      // Aplica a fórmula de conversão
+      c &lt;- (5 / 9) * (f - 32)
+      // c:2:2 exibe o Celsius com 2 casas decimais
+      Escreval(f, " F | ", c:2:2, " C")
+   FimPara
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Repetição 3.8 — Grãos no Tabuleiro de Xadrez</h4>
+            <p class="activity-statement">Calcule o total de grãos de trigo do problema do tabuleiro: o 1º quadro tem 1 grão e cada quadro seguinte tem o dobro do anterior, somando os 64 quadros.</p>
+            <div class="activity-code">Algoritmo "GraosXadrez"
+Var
+   quadro : Inteiro
+   // Real porque o total passa do limite de um Inteiro
+   graosNoQuadro, totalGraos : Real
+Inicio
+   // 1º quadro: 1 grão
+   graosNoQuadro &lt;- 1
+   totalGraos &lt;- 1
+   // Do 2º ao 64º quadro: dobra a quantidade e acumula no total
+   Para quadro de 2 ate 64 Faca
+      graosNoQuadro &lt;- graosNoQuadro * 2
+      totalGraos &lt;- totalGraos + graosNoQuadro
+   FimPara
+   Escreva("Total de graos de trigo devidos: ", totalGraos)
+Fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Reflexão individual</h4>
+            <p><!-- TODO: escreva aqui, com suas palavras, o que você aprendeu, quais dificuldades enfrentou e como as superou. --></p>
           </div>
 
         </div>
