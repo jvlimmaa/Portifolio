@@ -1874,6 +1874,161 @@ Fimalgoritmo</div>
       </div>
     </div>
   </div>
+      <div class="activity-card reveal">
+      <button class="activity-head" onclick="this.parentElement.classList.toggle('is-open')">
+        <div class="activity-head-text">
+          <h3>Atividade Prática — Vetores, Matrizes e Registros</h3>
+          <div class="activity-date">Disciplina: Algoritmos e Lógica de Programação · 1º Semestre · Prof.ª Waldinelly Costa</div>
+        </div>
+        <svg class="activity-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="activity-body">
+        <div class="activity-body-inner">
+
+          <div class="activity-block">
+            <h4>Questão 1 — Números pares em um vetor</h4>
+            <p class="activity-statement">Ler 6 números inteiros em um vetor e exibir somente os números pares armazenados.</p>
+            <p>Um número é par quando o resto da divisão por 2 é zero. Depois de armazenar os valores, o programa percorre o vetor e imprime apenas os que satisfazem essa condição.</p>
+          </div>
+
+          <div class="activity-block">
+            <h4>Resolução — VisuAlg</h4>
+            <div class="activity-code">algoritmo "NumerosPares"
+var
+ numeros: vetor[1..6] de inteiro
+ i: inteiro
+inicio
+ para i de 1 ate 6 faca
+  escreva("Digite o número ", i, ": ")
+  leia(numeros[i])
+ fimpara
+ escreval("--- Números pares ---")
+ para i de 1 ate 6 faca
+  se (numeros[i] % 2 = 0) entao
+   escreval(numeros[i])
+  fimse
+ fimpara
+fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Resolução — Python</h4>
+            <div class="activity-code">numeros = []
+
+for i in range(6):
+    n = int(input(f"Digite o número {i+1}: "))
+    numeros.append(n)
+
+print("--- Números pares ---")
+for n in numeros:
+    if n % 2 == 0:
+        print(n)</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Questão 2 — Soma da diagonal principal de uma matriz 3x3</h4>
+            <p class="activity-statement">Ler uma matriz 3x3 de inteiros e calcular a soma de todos os elementos da diagonal principal.</p>
+            <p>Na diagonal principal, linha e coluna têm o mesmo índice (l = c). Por isso, basta somar os elementos matriz[l][l].</p>
+          </div>
+
+          <div class="activity-block">
+            <h4>Resolução — VisuAlg</h4>
+            <div class="activity-code">algoritmo "SomaDiagonalPrincipal"
+var
+ matriz: vetor[1..3, 1..3] de inteiro
+ l, c, soma: inteiro
+inicio
+ para l de 1 ate 3 faca
+  para c de 1 ate 3 faca
+   escreva("Digite o valor para [", l, ",", c, "]: ")
+   leia(matriz[l, c])
+  fimpara
+ fimpara
+ soma &lt;- 0
+ para l de 1 ate 3 faca
+  soma &lt;- soma + matriz[l, l]
+ fimpara
+ escreval("Soma da diagonal principal: ", soma)
+fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Resolução — Python</h4>
+            <div class="activity-code">matriz = [[0, 0, 0],
+          [0, 0, 0],
+          [0, 0, 0]]
+
+for l in range(3):
+    for c in range(3):
+        matriz[l][c] = int(input(f"Digite o valor para [{l},{c}]: "))
+
+soma = 0
+for i in range(3):
+    soma += matriz[i][i]
+
+print("Soma da diagonal principal:", soma)</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Questão 3 — Registro de Produto</h4>
+            <p class="activity-statement">Definir um registro Produto com codigo (inteiro), descricao (texto), preco (real) e quantidade (inteiro), com rotinas de leitura e exibição formatada.</p>
+            <p>O registro agrupa campos de tipos diferentes em um único tipo. No Python, ele é representado por um dicionário, e as funções separam a leitura da exibição.</p>
+          </div>
+
+          <div class="activity-block">
+            <h4>Resolução — VisuAlg</h4>
+            <div class="activity-code">algoritmo "CadastroProduto"
+tipo
+ Produto = registro
+  codigo: inteiro
+  descricao: caractere
+  preco: real
+  quantidade: inteiro
+ fimregistro
+var
+ p: Produto
+inicio
+ escreva("Digite o código: ")
+ leia(p.codigo)
+ escreva("Digite a descrição: ")
+ leia(p.descricao)
+ escreva("Digite o preço: ")
+ leia(p.preco)
+ escreva("Digite a quantidade: ")
+ leia(p.quantidade)
+
+ escreval("=== Produto Cadastrado ===")
+ escreval("Código: ", p.codigo)
+ escreval("Descrição: ", p.descricao)
+ escreval("Preço: R$ ", p.preco:4:2)
+ escreval("Quantidade: ", p.quantidade)
+fimalgoritmo</div>
+          </div>
+
+          <div class="activity-block">
+            <h4>Resolução — Python</h4>
+            <div class="activity-code">def ler_produto():
+    produto = {}
+    produto["codigo"] = int(input("Digite o código: "))
+    produto["descricao"] = input("Digite a descrição: ")
+    produto["preco"] = float(input("Digite o preço: "))
+    produto["quantidade"] = int(input("Digite a quantidade: "))
+    return produto
+
+def exibir_produto(produto):
+    print("=== Produto Cadastrado ===")
+    print(f"Código: {produto['codigo']}")
+    print(f"Descrição: {produto['descricao']}")
+    print(f"Preço: R$ {produto['preco']:.2f}")
+    print(f"Quantidade: {produto['quantidade']}")
+
+produto = ler_produto()
+exibir_produto(produto)</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
 </section>
 
 <section id="contato">
